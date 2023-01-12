@@ -1,9 +1,9 @@
 package com.kotlin.androidbasics
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -12,9 +12,13 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val backButton = findViewById<Button>(R.id.back)
+        val username = findViewById<TextView>(R.id.username)
+
+        val nameFromFirstActivity = intent.getStringExtra("number")
+        username.text = nameFromFirstActivity ?: "Value is null"
 
         backButton.setOnClickListener {
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            finish()
         }
     }
 }
