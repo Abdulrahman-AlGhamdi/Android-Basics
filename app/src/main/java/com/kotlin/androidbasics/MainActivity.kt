@@ -10,15 +10,17 @@ import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var number: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_e1)
         Log.d("TAG", "onCreate: ")
 
+        number = findViewById(R.id.number)
         val viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         val plusButton = findViewById<Button>(R.id.plus)
         val minusButton = findViewById<Button>(R.id.minus)
-        val number = findViewById<TextView>(R.id.number)
         val next = findViewById<TextView>(R.id.next)
 
         number.text = viewModel.counter.toString()
