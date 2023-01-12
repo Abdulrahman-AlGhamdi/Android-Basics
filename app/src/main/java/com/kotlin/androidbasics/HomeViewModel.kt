@@ -9,5 +9,5 @@ class HomeViewModel : ViewModel() {
 
     fun add(text: String) = array.add(text)
 
-    fun show(): String = array.joinToString(" ")
+    fun show(): String = array.joinToString("\n")
 }
